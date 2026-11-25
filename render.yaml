@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: relay-chat-backend
+    runtime: docker
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: LLM_API_KEYS
+        sync: false
+      - key: LLM_MODEL
+        value: gemini/gemini-2.0-flash
+      - key: DATABASE_URL
+        value: sqlite:////data/app.db
+      - key: ALLOWED_ORIGINS
+        sync: false
+      - key: ENABLE_FAILURE_SIMULATION
+        value: "true"
+      - key: DEFAULT_SYSTEM_PROMPT
+        value: You are a helpful, concise assistant.
+      - key: LLM_TIMEOUT
+        value: "30"
+    # Note: Free-tier Render instances use ephemeral storage for /data.
+    # On a paid plan, you can attach a persistent disk mounted at /data.
