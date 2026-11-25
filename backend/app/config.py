@@ -10,7 +10,7 @@ def api_keys() -> list[str]:
 
 
 def model() -> str:
-    return os.getenv("LLM_MODEL", "gemini/gemini-2.0-flash")
+    return os.getenv("LLM_MODEL", "gemini/gemini-3.8-flash")
 
 
 def allowed_origins() -> list[str]:
