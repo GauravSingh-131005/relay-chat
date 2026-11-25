@@ -2,6 +2,7 @@ services:
   - type: web
     name: relay-chat-backend
     runtime: docker
+    plan: free
     rootDir: backend
     dockerfilePath: ./Dockerfile
     healthCheckPath: /health
